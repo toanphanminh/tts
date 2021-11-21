@@ -1,9 +1,25 @@
 import streamlit as st
 from text_to_speech import * 
+from google_drive_downloader import GoogleDriveDownloader as gdd
+import os
+
 
 
 st.header("Demo Text to speech - HCMUS K30")
 st.subheader("Phan Minh Toan 20C11057")
+
+
+if (not os.path.exists('./output/ckpt/LJSpeech/900000.pth.tar')):
+    with st.spinner(text="Download model in progress..."):
+        gdd.download_file_from_google_drive(file_id='1Mv0LP0jmqijK6zknC9Q0MBYuBBIIUoD6',
+                                    dest_path='./output/ckpt/LJSpeech/900000.pth.tar')
+
+if (not os.path.exists('./hifigan_model/generator_LJSpeech.pth.tar')):
+    with st.spinner(text="Download model in progress..."):
+        gdd.download_file_from_google_drive(file_id='16vCMbc7uNHUdCFuzft4-G-GW_YCUF33m',
+                                        dest_path='./hifigan_model/generator_LJSpeech.pth.tar')
+    
+
 text_input = st.text_area("Input Text", "Hi, my name is Minh Toan, welcome to my demo of text to speech")
 option_lang = st.selectbox("Select Language", ("English", "Vietnamese not available"))
 if option_lang == "Vietnamese":
