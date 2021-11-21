@@ -16,3 +16,10 @@ torch == 1.7.0
 tqdm==4.46.1
 unidecode == 1.1.1
 googledrivedownloader
+tabulate    
+optax    
+jax    
+jaxlib    
+einops    
+textgrid  
+git+https://github.com/deepmind/dm-haiku    

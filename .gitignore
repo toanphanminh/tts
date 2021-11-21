@@ -1,1 +1,6 @@
 __pycache__
+*.pth.tar
+*.tar
+g_01135000
+*.pickle
+*.wav

@@ -1,0 +1,1 @@
+init to store hifigan model
