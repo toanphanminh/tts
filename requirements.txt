@@ -1,25 +1,51 @@
-tabulate == 0.8.9
-optax == 0.0.9   
-jax == 0.2.24
-jaxlib == 0.1.73
-einops == 0.3.2
-textgrid == 1.5
-librosa == 0.8.1
+tabulate
+optax 
+jax 
+jaxlib 
+einops 
+textgrid 
+librosa 
 git+https://github.com/deepmind/dm-haiku    
-g2p-en == 2.1.0
-inflect == 4.1.0
-matplotlib == 3.2.2
-numba == 0.48
-numpy == 1.19.0
-pypinyin==0.39.0
-pyworld == 0.2.10
-PyYAML==5.4.1
-scikit-learn==0.23.2
-scipy == 1.5.0
-soundfile==0.10.3.post1
-tensorboard == 2.2.2
-tgt == 1.4.4
-torch == 1.7.0
-tqdm==4.46.1
-unidecode == 1.1.1
-googledrivedownloader == 0.4
+g2p-en 
+inflect 
+matplotlib 
+numba 
+numpy 
+pypinyin 
+pyworld 
+PyYAML
+scikit-learn
+scipy 
+soundfile
+tensorboard 
+tgt 
+torch 
+tqdm
+unidecode 
+googledrivedownloader
+
+# tabulate == 0.8.9
+# optax == 0.0.9   
+# jax == 0.2.24
+# jaxlib == 0.1.73
+# einops == 0.3.2
+# textgrid == 1.5
+# librosa == 0.8.1
+# git+https://github.com/deepmind/dm-haiku    
+# g2p-en == 2.1.0
+# inflect == 4.1.0
+# matplotlib == 3.2.2
+# numba == 0.48
+# numpy == 1.19.0
+# pypinyin==0.39.0
+# pyworld == 0.2.10
+# PyYAML==5.4.1
+# scikit-learn==0.23.2
+# scipy == 1.5.0
+# soundfile==0.10.3.post1
+# tensorboard == 2.2.2
+# tgt == 1.4.4
+# torch == 1.7.0
+# tqdm==4.46.1
+# unidecode == 1.1.1
+# googledrivedownloader == 0.4
