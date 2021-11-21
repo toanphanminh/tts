@@ -24,8 +24,8 @@ def nat_normalize_text(text):
     text = re.sub(f'( {sp}+)+ ', f' {sp} ', text)
     return text.strip()
 
-st.header("Demo Text to speech - HCMUS K30")
-st.subheader("Phan Minh Toan 20C11057")
+st.header("Text To Speech Application (EN - VN)")
+st.subheader("Phan Minh Toan - HCMUS K30 - 20C11057")
 
 
 if (not os.path.exists('./output/ckpt/LJSpeech/900000.pth.tar')):
@@ -53,17 +53,17 @@ if (not os.path.exists('./assets/infore/nat/nat_ckpt_latest.pickle')):
         gdd.download_file_from_google_drive(file_id='1FqSoXVwVNIjw6XOJYqrTJYsC0XweEZTa',
                                     dest_path='./assets/infore/nat/nat_ckpt_latest.pickle')                                                                          
 
-text_input = st.text_area("Input Text", "Hi, my name is Minh Toan, welcome to my demo of text to speech")
+text_input = st.text_area("Input Text", "Hi, my name is Minh Toan, welcome to my application of text to speech")
 option_lang = st.selectbox("Select Language", ("English", "Vietnamese"))
 if option_lang == "Vietnamese":
-    speaker_type = st.selectbox("Speaker Type", ("Female", "Male"))
+    speaker_type = st.selectbox("Speaker Gender", ("Female", "Male"))
     if speaker_type == "Female":
         speaker = 0
     else:
         speaker = 1
 
 
-if st.button("Text to speech"):
+if st.button("Convert text to speech"):
     with st.spinner(text="In progress..."):
         if option_lang == "Vietnamese":
             text = nat_normalize_text(text_input)
@@ -72,7 +72,7 @@ if st.button("Text to speech"):
             elif speaker_type == "Male":
                 mel = text2mel(text, 'assets/infore/lexicon.txt', -1, speaker= 1)
             else:
-                st.error("Please select speaker type")
+                st.error("Please select speaker gender")
             wave = mel2wave(mel)
             sf.write(str('result/audio.wav'), wave, samplerate=16000)
         elif option_lang == "English":
