@@ -19,7 +19,7 @@ scipy
 soundfile
 tensorboard 
 tgt 
-torch 
+torch ==1.7.0
 tqdm
 unidecode 
 googledrivedownloader
