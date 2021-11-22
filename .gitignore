@@ -1,1 +1,9 @@
 __pycache__
+*.pth.tar
+*.Wav
+*.tar
+assets/infore/hifigan/g_01135000
+*.pickle
+g_01135000
+assets/infore/hifigan/hk_hifi.pickle
+assets/infore/nat/nat_ckpt_latest.pickle
