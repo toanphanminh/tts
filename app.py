@@ -4,18 +4,24 @@ from google_drive_downloader import GoogleDriveDownloader as gdd
 import os
 
 
+st.set_page_config(page_title="Text To Speech Application", page_icon="🧊", layout="wide", initial_sidebar_state="expanded", menu_items={
+          'Get Help': 'https://www.facebook.com/phanminhtoanIT',
+          'Report a bug': "https://www.facebook.com/phanminhtoanIT",
+          'About': "This is a text to speech application"
+      }
+  )
 
-st.header("Demo Text to speech - HCMUS K30")
-st.subheader("Phan Minh Toan 20C11057")
+st.header("Text to speech Application | HCMUS K30")
+st.subheader("Phan Minh Toan - 20C11057")
 
 
 if (not os.path.exists('./output/ckpt/LJSpeech/900000.pth.tar')):
-    with st.spinner(text="Download model in progress..."):
+    with st.spinner(text="Download model in progress "):
         gdd.download_file_from_google_drive(file_id='1Mv0LP0jmqijK6zknC9Q0MBYuBBIIUoD6',
                                     dest_path='./output/ckpt/LJSpeech/900000.pth.tar')
 
 if (not os.path.exists('./hifigan_model/generator_LJSpeech.pth.tar')):
-    with st.spinner(text="Download model in progress..."):
+    with st.spinner(text="Download model in progress "):
         gdd.download_file_from_google_drive(file_id='16vCMbc7uNHUdCFuzft4-G-GW_YCUF33m',
                                         dest_path='./hifigan_model/generator_LJSpeech.pth.tar')
     
@@ -31,12 +37,15 @@ if option_lang == "Vietnamese":
 
 
 if st.button("Text to speech"):
-    with st.spinner(text="In progress..."):
+    with st.spinner(text="In progress "):
         if option_lang == "Vietnamese not available":
             pass
         
         elif option_lang == "English":
-            text_to_speech(text_input)
+            try:
+                text_to_speech(text_input)
+            except Exception as e:
+                st.error(e)
            
         audio_file = open('result/audio.wav', 'rb')
         audio_bytes = audio_file.read()
