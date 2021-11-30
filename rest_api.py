@@ -15,6 +15,37 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import base64
 import uvicorn
+import os
+from google_drive_downloader import GoogleDriveDownloader as gdd
+
+
+
+if (not os.path.exists('./output/ckpt/LJSpeech/900000.pth.tar')):
+    print("Download model in progress...")
+    gdd.download_file_from_google_drive(file_id='1Mv0LP0jmqijK6zknC9Q0MBYuBBIIUoD6',
+                                    dest_path='./output/ckpt/LJSpeech/900000.pth.tar')
+
+if (not os.path.exists('./hifigan_model/generator_LJSpeech.pth.tar')):
+    print("Download model in progress...")
+    gdd.download_file_from_google_drive(file_id='16vCMbc7uNHUdCFuzft4-G-GW_YCUF33m',
+                                        dest_path='./hifigan_model/generator_LJSpeech.pth.tar')
+
+if (not os.path.exists('./assets/infore/hifigan/g_01135000')):
+    print("Download model in progress...")
+    gdd.download_file_from_google_drive(file_id='1oD1gg9yAdc1zG0uLK0n8hj6ZlhuhdZS8',
+                                    dest_path='./assets/infore/hifigan/g_01135000')
+
+if (not os.path.exists('./assets/infore/hifigan/hk_hifi.pickle')):
+    print("Download model in progress...")
+    gdd.download_file_from_google_drive(file_id='1Cc1AJXHBNAll-tftV0c_ijHiAhyvEbhV',
+                                    dest_path='./assets/infore/hifigan/hk_hifi.pickle')  
+
+if (not os.path.exists('./assets/infore/nat/nat_ckpt_latest.pickle')):
+    print("Download model in progress...")
+    gdd.download_file_from_google_drive(file_id='1FqSoXVwVNIjw6XOJYqrTJYsC0XweEZTa',
+                                    dest_path='./assets/infore/nat/nat_ckpt_latest.pickle')                                                                          
+
+
 
 class Item(BaseModel):
     text: str
