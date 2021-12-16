@@ -11,8 +11,8 @@ st.set_page_config(page_title="Text To Speech Application", page_icon="🧊", la
       }
   )
 
-st.header("Text to speech Application | HCMUS K30")
-st.subheader("Phan Minh Toan - 20C11057")
+st.header("Text to speech Application")
+st.subheader("Phan Minh Toan")
 
 
 if (not os.path.exists('./output/ckpt/LJSpeech/900000.pth.tar')):
